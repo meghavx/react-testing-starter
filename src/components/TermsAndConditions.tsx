@@ -19,7 +19,7 @@ const TermsAndConditions = () => {
             onChange={() => setIsChecked(!isChecked)}
             className="mr-1"
           />
-          I accept the terms and conditions.
+          I accept the terms & conditions.
         </label>
       </div>
       <button disabled={!isChecked} className="btn">

@@ -14,18 +14,14 @@ describe('UserAccount', () => {
 
     it('should render edit button if user is admin', () => {
         render(<UserAccount user={testUser1} />)
-        if (testUser1.isAdmin) { 
-            const editButton = screen.getByRole('button')
-            expect(editButton).toBeInTheDocument()
-            expect(editButton).toHaveTextContent(/edit/i)
-        }
+        const editButton = screen.queryByRole('button')
+        expect(editButton).toBeInTheDocument()
+        expect(editButton).toHaveTextContent(/edit/i)
     })
 
     it('should not render edit button if user is not admin', () => {
-        render(<UserAccount user={testUser2} />)
-        if (!testUser2.isAdmin) { 
-            const editButton = screen.queryByRole('button')
-            expect(editButton).not.toBeInTheDocument()
-        }
+        render(<UserAccount user={testUser2} />)        
+        const editButton = screen.queryByRole('button')
+        expect(editButton).not.toBeInTheDocument()
     })
 })
